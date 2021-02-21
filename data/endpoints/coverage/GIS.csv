@@ -1,0 +1,110 @@
+osuked_id,name,lon/lat,turbines,substations
+10147,AChruach Wind Farm,True,False,False
+10148,Aikengall 2 Wind Farm Generation,True,False,False
+10149,Airies Windfarm,True,False,False
+10150,Andershaw Wind Farm,True,False,False
+10151,An Suidhe Windfarm,True,False,False
+10152,Arecleoch Windfarm,True,False,False
+10153,Assel Valley Wind Farm,True,False,False
+10154,Auchrobert Wind Farm,True,False,False
+10155,Baillie Wind Farm,True,False,False
+10156,Barrow Offshore Windfarm,True,True,False
+10157,Beinn An Tuirc 2 Windfarm,True,False,False
+10158,Beinneun Wind Farm,True,False,False
+10159,Beinn Tharsuinn,True,False,False
+10160,Berry Burn Windfarm,True,False,False
+10161,Bhlaraidh Windfarm 1,True,False,False
+10162,Blackcraig Windfarm,True,False,False
+10163,Black Law Wind Farm,True,False,False
+10164,Black Law Windfarm Extension,True,False,False
+10165,Blyth Offshore Demonstrator Windfarm Generation,True,True,False
+10166,Braes of Doune,True,False,False
+10167,Brockloch Rig 2 Windfarm,True,False,False
+10168,Brownieleys Windfarm,True,False,False
+10169,Burbo Bank Offshore Windfarm,True,False,False
+10170,Burbo Bank Wind Farm Extension,True,True,False
+10171,Burn of Whilk Windfarm,True,True,False
+10172,Cairn Uish / Rothes Windfarm Extension,True,False,False
+10173,Camster Wind Farm,True,False,False
+10174,Carraig Gheal Wind Farm,True,False,False
+10175,Clachan Flats Windfarm,True,False,False
+10176,Clashindarroch Wind Farm,True,False,False
+10177,"Clyde Central Windfarm, Clyde North Windfarm, Clyde South Windfarm",True,False,False
+10178,Corriegarth Wind Farm,True,False,False
+10179,Corriemoillie Wind Farm,True,False,False
+10180,Cour Wind Farm,True,False,False
+10181,Crystal Rig III Wind Farm,True,False,False
+10182,Crystal Rig Wind Farm - Phase 2,True,False,False
+10183,Dalswinton Wind Farm,True,False,False
+10184,Dersalloch Windfarm,True,False,False
+10185,Dudgeon Offshore Wind Farm Generator,True,True,False
+10186,Dun Law Extension Windfarm,True,False,False
+10187,Dunmglass Wind Farm,True,False,False
+10188,Edinbane Windfarm,True,False,False
+10189,Ewe Hill II Wind Farm,True,False,False
+10190,Fallago Rig Wind Farm,True,False,False
+10191,Farr Wind Farm,True,False,False
+10192,Freasdail Wind Farm,True,False,False
+10193,Galawhistle Wind Farm,True,False,False
+10194,Galloper Offshore Windfarm 1,True,True,False
+10195,Glen App Wind Farm,True,False,False
+10196,Glenchamber Wind Farm,True,False,False
+10197,Glens of Foudland,True,False,False
+10198,Goole Fields 1 Windfarm,True,False,False
+10199,Gordonbush Wind Farm,True,False,False
+10200,Gordonstown Windfarm,True,False,False
+10201,Greater Gabbard Offshore Windfarm,True,True,False
+10202,Griffin Wind Farm,True,False,False
+10203,Gunfleet Sands Demo  3,True,False,False
+10204,Gunfleet Sands Windfarm  1,True,True,False
+10205,Gunfleet Sands Windfarm  2,True,True,False
+10206,Gwynt y Mor Offshore Wind Farm,True,True,True
+10207,Gwynt y Mor Wind Farm East 1,True,False,False
+10208,Hadyard Hill Wind Farm,True,False,False
+10209,Harburnhead Wind Farm,True,False,False
+10210,Hare Hill Extension Wind Farm,True,False,False
+10211,Harestanes Windfarm,True,False,False
+10212,Hill of Glaschyle Windfarm,True,False,False
+10213,Hill of Towie Windfarm ,True,False,False
+10214,Humber Offshore Wind Farm,True,True,False
+10215,Hywind Generator 1,True,False,False
+10216,Keith Hill Windfarm,True,False,False
+10217,Kilbraur Windfarm,False,False,False
+10218,Kilgallioch Wind Farm,True,False,False
+10219,Lincs Offshore Wind Farm,True,True,True
+10220,Lochluichart Windfarm,True,False,False
+10221,London Array Windfarm,True,True,True
+10222,Mark Hill Windfarm,True,False,False
+10223,Mid Hill Windfarm,True,False,False
+10224,Millennium Wind Farm,True,False,False
+10225,Minnygap Wind Farm,True,False,False
+10226,Minsca Wind Farm,True,False,False
+10227,Moy Windfarm,True,False,False
+10228,Moy Windfarm,True,False,False
+10229,Ormonde Windfarm,True,True,False
+10230,Ormonde Windfarm Demand,True,False,False
+10231,Pauls Hill Windfarm,True,False,False
+10232,Pen y Cymoedd Wind Farm,True,False,False
+10233,Race Bank Offshore Wind Farm,True,True,True
+10234,Rampion Offshore Windfarm,True,True,True
+10235,Robin Rigg East,True,True,False
+10236,Robin Rigg West,True,True,False
+10237,Rothes (Cairn Uish) Wind Farm,True,False,False
+10238,Sanquhar Community Wind Farm Generation,True,False,False
+10239,Sheringham Shoals Windfarm  1,True,True,True
+10240,Strathy North Wind Farm 1,True,False,False
+10241,Thanet Offshore Wind,True,False,False
+10242,Thanet Offshore Windfarm,True,True,True
+10243,Toddleburn Wind Farm,True,False,False
+10244,Tullo,True,False,False
+10245,Walney Offshore Windfarm (Extension),True,True,False
+10246,Walney Offshore Windfarm  1,True,False,False
+10247,Walney Offshore Windfarm  2,True,True,False
+10248,Westermost Rough Windfarm,True,True,False
+10249,Westermost Rough Windfarm Onshore Demand,True,False,False
+10250,West of Duddon Sands,True,False,False
+10251,West of Duddon Sands,True,True,True
+10252,Whitelee Wind Farm,True,False,False
+10253,Whitelee Windfarm Extension,True,False,False
+10277,,False,False,False
+10284,Stronelairg Windfarm,True,False,False

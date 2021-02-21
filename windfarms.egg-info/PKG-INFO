@@ -1,0 +1,15 @@
+Metadata-Version: 2.1
+Name: windfarms
+Version: 0.0.1
+Summary: UNKNOWN
+Home-page: https://github.com/OSUKED/Wind-Farms
+Author: Ayrton Bourn
+Author-email: ayrtonbourn@outlook.com
+License: UNKNOWN
+Description: # Wind-Farms
+         
+        
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
