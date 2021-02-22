@@ -98,7 +98,7 @@ osuked_id,name,lon/lat,turbines,substations
 10243,Toddleburn Wind Farm,True,False,False
 10244,Tullo,True,False,False
 10245,Walney Offshore Windfarm (Extension),True,True,False
-10246,Walney Offshore Windfarm  1,True,False,False
+10246,Walney Offshore Windfarm  1,True,True,True
 10247,Walney Offshore Windfarm  2,True,True,False
 10248,Westermost Rough Windfarm,True,True,False
 10249,Westermost Rough Windfarm Onshore Demand,True,False,False

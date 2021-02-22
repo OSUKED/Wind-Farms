@@ -23,7 +23,7 @@ from IPython.display import JSON
 ### Input Data
 
 ```python
-wind_farms_dir = '../data/endpoints/wind_farms'
+wind_farms_dir = '../data/endpoints/sites'
 ```
 
 <br>
@@ -132,7 +132,7 @@ plt.scatter(latitudes, longitudes)
 
 
 
-    <matplotlib.collections.PathCollection at 0x2867c376c08>
+    <matplotlib.collections.PathCollection at 0x2c37faa7fc8>
 
 
 
@@ -195,21 +195,22 @@ N.b. The Overpass-Turbo query used can be found [here](https://overpass-turbo.eu
 
 ```python
 ce_id_to_substation_coords = {
-    'LARYO': {'latitudes': [1.438, 1.531], 'longitudes': [51.631, 51.604]}, # manual based on image from https://www.escaeu.org/articles/submarine-power-cables/
-    'HOWAO': {'latitudes': [1.714, 1.8955, 2.102], 'longitudes': [53.89, 53.878, 53.878]}, # manual based on image from p4 - https://www.ofgem.gov.uk/system/files/docs/2018/10/hornsea_one_project_presentation.pdf
-    'GYMRW': {'latitudes': [-3.624, -3.54], 'longitudes': [53.4372, 53.466]}, # manual based on image from https://www.kinewell.co.uk/gwynt-y-mor
-    'RMPNO': {'latitudes': [1.947, 1.959, 1.884, 1.981], 'longitudes': [51.908, 51.9655, 51.919, 51.779]}, # manual based on image from p16 - http://nearyou.imeche.org/docs/greater-manchester-area-past-presentations/offshore-wind.pdf
-    'RMPNO': {'latitudes': [-0.259818], 'longitudes': [50.692888]}, # https://www.rampionoffshore.com/app/uploads/2017/06/offshore-substation.json - this was found looking at the requests for this page - https://www.rampionoffshore.com/wind-farm/map/
-    'WDNSW': {'latitudes': [-3.4337], 'longitudes': [53.989]}, # manual based on image from https://www.sintef.no/globalassets/project/eera-deepwind2016/presentations/x2_merz.pdf
-    'THNTW': {'latitudes': [1.621919], 'longitudes': [51.4375182]}, # overpass, then confirmed here - https://www.researchgate.net/publication/318893622_Optimizing_wind_farm_cable_routing_considering_power_losses/figures?lo=1
-    'RCBKO': {'latitudes': [0.808, 0.867], 'longitudes': [53.295, 53.256]}, # manual based on image from https://www.ofgem.gov.uk/system/files/docs/2016/10/race_bank_presentation.pdf
-    'SHRSO': {'latitudes': [1.175819, 1.120607], 'longitudes': [53.126704, 53.144141]}, # overpass
-    'LNCSW': {'latitudes': [0.4906076], 'longitudes': [53.188448]} # overpass
+    'LARYO': {'latitude': [1.438, 1.531], 'longitude': [51.631, 51.604]}, # manual based on image from https://www.escaeu.org/articles/submarine-power-cables/
+    'HOWAO': {'latitude': [1.714, 1.8955, 2.102], 'longitude': [53.89, 53.878, 53.878]}, # manual based on image from p4 - https://www.ofgem.gov.uk/system/files/docs/2018/10/hornsea_one_project_presentation.pdf
+    'GYMRW': {'latitude': [-3.624, -3.54], 'longitude': [53.4372, 53.466]}, # manual based on image from https://www.kinewell.co.uk/gwynt-y-mor
+    'RMPNO': {'latitude': [1.947, 1.959, 1.884, 1.981], 'longitude': [51.908, 51.9655, 51.919, 51.779]}, # manual based on image from p16 - http://nearyou.imeche.org/docs/greater-manchester-area-past-presentations/offshore-wind.pdf
+    'RMPNO': {'latitude': [-0.259818], 'longitude': [50.692888]}, # https://www.rampionoffshore.com/app/uploads/2017/06/offshore-substation.json - this was found looking at the requests for this page - https://www.rampionoffshore.com/wind-farm/map/
+    'WDNSW': {'latitude': [-3.4337], 'longitude': [53.989]}, # manual based on image from https://www.sintef.no/globalassets/project/eera-deepwind2016/presentations/x2_merz.pdf
+    'THNTW': {'latitude': [1.621919], 'longitude': [51.4375182]}, # overpass, then confirmed here - https://www.researchgate.net/publication/318893622_Optimizing_wind_farm_cable_routing_considering_power_losses/figures?lo=1
+    'RCBKO': {'latitude': [0.808, 0.867], 'longitude': [53.295, 53.256]}, # manual based on image from https://www.ofgem.gov.uk/system/files/docs/2016/10/race_bank_presentation.pdf
+    'SHRSO': {'latitude': [1.175819, 1.120607], 'longitude': [53.126704, 53.144141]}, # overpass
+    'LNCSW': {'latitude': [0.4906076], 'longitude': [53.188448]}, # overpass
+    'WLNYW-1': {'latitude': [-3.5010924], 'longitude': [54.0442153]} # overpass
 }
 ```
 
 ```python
-# s_num_turbines = pd.Series({k: len(v['latitude']) for k, v in wf_id_to_turbine_coords.items()}).sort_values(ascending=False)
+# s_num_turbines = pd.Series({k: len(v['latitude']) for k, v in ce_id_to_turbine_coords.items()}).sort_values(ascending=False)
 
 # s_num_turbines.head(10)
 ```
@@ -217,15 +218,15 @@ ce_id_to_substation_coords = {
 ```python
 # wf_id_to_name = {wf['Id']: wf['Name'] for wf in crown_estate_data['WindFarms']}
 
-# pd.Series({k: wf_id_to_name[k] for k in wf_id_to_turbine_coords.keys()}).loc[s_num_turbines.head(15).index]
+# pd.Series({k: wf_id_to_name[k] for k in ce_id_to_turbine_coords.keys()}).loc[s_num_turbines.iloc[9:].head(10).index]
 ```
 
 ```python
-# latitudes, longitudes = wf_id_to_turbine_coords['LARYO'].values()
+# latitudes, longitudes = ce_id_to_turbine_coords['WLNYW-1'].values()
 # plt.scatter(latitudes, longitudes, s=3)
 # plt.gca().set_aspect('equal', adjustable='box')
 
-# plt.scatter([1.438, 1.531], [51.631, 51.604], s=3) 
+# plt.scatter([-3.5010924], [54.0442153], s=3) 
 ```
 
 <br>
@@ -236,7 +237,7 @@ ce_id_to_substation_coords = {
 ce_id_to_osuked_id = {
     'RREW-1': 10235,
     'RRWW-1': 10236,
-    'WLNYO-1': 10246,
+    'WLNYW-1': 10246,
     'WLNYO-2': 10247,
     'WDNSW': 10251,
     'BOWLW-1': 10156,
@@ -276,9 +277,4 @@ for ce_id, osuked_id in ce_id_to_osuked_id.items():
         
     with open(f'{wind_farms_dir}/{osuked_id}.json', 'w') as fp:
         json.dump(wf, fp)
-```
-
-```python
-# Create an md table automatically that has y/n for different GIS data
-# Use read_html on the table to determine relevant subset for SP analysis
 ```

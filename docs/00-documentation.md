@@ -4,6 +4,7 @@
 
 ```python
 #exports
+import json
 import junix
 import pandas as pd
 from html.parser import HTMLParser
@@ -25,6 +26,8 @@ dev_nbs_dir = '.'
 docs_dir = '../docs'
 docs_nb_img_dir = f'{docs_dir}/img/nbs'
 nb_img_dir = '../img/nbs'
+wind_farms_dir = '../data/endpoints/sites'
+coverage_dir = '../data/endpoints/coverage'
 ```
 
 <br>
@@ -68,10 +71,10 @@ for nbs_dir in [dev_nbs_dir]:
 
 
 <div><span class="Text-label" style="display:inline-block; overflow:hidden; white-space:nowrap; text-overflow:ellipsis; min-width:0; max-width:15ex; vertical-align:middle; text-align:right"></span>
-<progress style="width:60ex" max="3" value="3" class="Progress-main"/></progress>
+<progress style="width:60ex" max="4" value="4" class="Progress-main"/></progress>
 <span class="Progress-label"><strong>100%</strong></span>
-<span class="Iteration-label">3/3</span>
-<span class="Time-label">[00:01<00:00, 0.43s/it]</span></div>
+<span class="Iteration-label">4/4</span>
+<span class="Time-label">[00:02<00:01, 0.52s/it]</span></div>
 
 
 <br>
@@ -183,4 +186,113 @@ def clean_md_file_img_fps(md_fp):
 ```python
 for md_fp in md_fps:
     clean_md_file_img_fps(md_fp)
+```
+
+<br>
+
+### GIS Data Coverage
+
+```python
+dict_has_keys = lambda dict_, keys: len(set(keys) - set(dict_.keys())) == 0
+
+wf_GIS_coverage = dict()
+wf_ids = [f.replace('.json', '') for f in os.listdir(wind_farms_dir) if '.json' in f]
+
+for wf_id in wf_ids:
+    with open(f'{wind_farms_dir}/{wf_id}.json', 'r') as fp:
+        wf = json.load(fp)
+    
+    wf_GIS_coverage[wf_id] = dict()
+    
+    if 'name' in wf.keys():
+        wf_GIS_coverage[wf_id]['name'] = wf['name']
+    
+    wf_GIS_coverage[wf_id]['lon/lat'] = dict_has_keys(wf, ['longitude', 'latitude'])
+    wf_GIS_coverage[wf_id]['turbines'] = dict_has_keys(wf, ['turbine_coords'])
+    wf_GIS_coverage[wf_id]['substations'] = dict_has_keys(wf, ['substation_coords'])
+    
+df_GIS_coverage = pd.DataFrame(wf_GIS_coverage).T
+df_GIS_coverage.index.name = 'osuked_id'
+
+df_GIS_coverage.head()
+```
+
+
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>name</th>
+      <th>lon/lat</th>
+      <th>turbines</th>
+      <th>substations</th>
+    </tr>
+    <tr>
+      <th>osuked_id</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>10147</th>
+      <td>AChruach Wind Farm</td>
+      <td>True</td>
+      <td>False</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>10148</th>
+      <td>Aikengall 2 Wind Farm Generation</td>
+      <td>True</td>
+      <td>False</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>10149</th>
+      <td>Airies Windfarm</td>
+      <td>True</td>
+      <td>False</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>10150</th>
+      <td>Andershaw Wind Farm</td>
+      <td>True</td>
+      <td>False</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>10151</th>
+      <td>An Suidhe Windfarm</td>
+      <td>True</td>
+      <td>False</td>
+      <td>False</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+
+```python
+df_GIS_coverage.to_csv(f'{coverage_dir}/GIS.csv')
 ```
