@@ -31,6 +31,8 @@ Included are:
 
 We'll use Whitelee wind farm as an example, the endpoint url would be structured something like https://osuked.github.io/Wind-Farms/sites/10252.json (N.b. currently a simpler data structure will be returned if you visit this link).
 
+Note that some id fields change even within the same organisation. Additionally, aspects such as the relationships between objects will require a standardised ontology.
+
 ```json
 {
 	"attributes": {
@@ -59,7 +61,7 @@ We'll use Whitelee wind farm as an example, the endpoint url would be structured
 				{
 					"name": "Actual Generation Output Per Generation Unit",
 					"url": "https://www.bmreports.com/bmrs/?q=actgenration/actualgeneration",
-					"id_field": "BM Unit ID" # Some id fields change even within the same organisation
+					"id_field": "BM Unit ID"
 				}
 			],
 		},
@@ -74,7 +76,7 @@ We'll use Whitelee wind farm as an example, the endpoint url would be structured
 	},
 	"object_links": [{
 		"url": "https://osuked.github.io/Wind-Farms/sites/10253.json",
-		"relationship": "extension" # This will require a standardised ontology
+		"relationship": "extension"
 	}]
 }
 ```
@@ -127,7 +129,6 @@ Using our previous example we'll explore what each of these four dictionary comp
                 "url": "https://www.bmreports.com/bmrs/?q=balancing/detailprices",
                 "id_field": "Id"
             },
-            ...
             {
                 "name": "Actual Generation Output Per Generation Unit",
                 "url": "https://www.bmreports.com/bmrs/?q=actgenration/actualgeneration",
