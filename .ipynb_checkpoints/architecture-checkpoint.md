@@ -33,56 +33,49 @@ We'll use Whitelee wind farm as an example, the endpoint url would be structured
 
 ```json
 {
-    'attributes': {
-        'name': 'Whitelee Wind Farm',
-        'fuel_type': 'wind',
-        'capacity_mw': 322,
-        'latitude': 55.702355,
-        'longitude': -4.042969,
-    },
-    'data_links': {
-        'gppd': {
-            'id': 'GBR0003489',
-            'datasets': [
-                {
-                    'name': 'Global Power Plant Database',
-                    'url': 'https://github.com/wri/global-power-plant-database',
-                    'id_field': 'gppd_idnr',
-                }
-            ],
-        },
-        'bmu': {
-            'id': 'T_WHILW-1',
-            'datasets': [
-                {
-                    'name': 'Detailed System Prices',
-                    'url': 'https://www.bmreports.com/bmrs/?q=balancing/detailprices',
-                    'id_field': 'Id'
-                },
-                {
-                    'name': 'Actual Generation Output Per Generation Unit',
-                    'url': 'https://www.bmreports.com/bmrs/?q=actgenration/actualgeneration',
-                    'id_field': 'BM Unit ID' # Some id fields change even within the same organisation
-                }
-            ],
-        },
-        'beis': {
-            'id': 3489,
-            'datasets': [
-                {
-                    'name': 'Renewable Power Plants UK',
-                    'url': 'https://data.open-power-system-data.org/renewable_power_plants/',
-                    'id_field': 'uk_beis_id'                
-                }
-            ]
-        }
-    },
-    'object_links': [
-        {
-            'url': 'https://osuked.github.io/Wind-Farms/sites/10253.json',
-            'relationship': 'extension' # This will require a standardised ontology
-        }
-    ]
+	"attributes": {
+		"name": "Whitelee Wind Farm",
+		"fuel_type": "wind",
+		"capacity_mw": 322,
+		"latitude": 55.702355,
+		"longitude": -4.042969,
+	},
+	"data_links": {
+		"gppd": {
+			"id": "GBR0003489",
+			"datasets": [{
+				"name": "Global Power Plant Database",
+				"url": "https://github.com/wri/global-power-plant-database",
+				"id_field": "gppd_idnr",
+			}],
+		},
+		"bmu": {
+			"id": "T_WHILW-1",
+			"datasets": [{
+					"name": "Detailed System Prices",
+					"url": "https://www.bmreports.com/bmrs/?q=balancing/detailprices",
+					"id_field": "Id"
+				},
+				{
+					"name": "Actual Generation Output Per Generation Unit",
+					"url": "https://www.bmreports.com/bmrs/?q=actgenration/actualgeneration",
+					"id_field": "BM Unit ID" # Some id fields change even within the same organisation
+				}
+			],
+		},
+		"beis": {
+			"id": 3489,
+			"datasets": [{
+				"name": "Renewable Power Plants UK",
+				"url": "https://data.open-power-system-data.org/renewable_power_plants/",
+				"id_field": "uk_beis_id"
+			}]
+		}
+	},
+	"object_links": [{
+		"url": "https://osuked.github.io/Wind-Farms/sites/10253.json",
+		"relationship": "extension" # This will require a standardised ontology
+	}]
 }
 ```
 
@@ -92,7 +85,7 @@ We'll use Whitelee wind farm as an example, the endpoint url would be structured
 
 Using a list of urls linked to assets using the metadata structure described above we would then programmatically generate a dictionary that summarises the data linkages and attributes for a given type of asset. A generalised version of the outputted data package can be seen below.
 
-<img src="../img/diagram.png" width="75%"/>
+<img src="https://github.com/OSUKED/Wind-Farms/raw/main/img/diagram.png" width="75%"/>
 
 <br>
 
@@ -119,41 +112,36 @@ Using our previous example we'll explore what each of these four dictionary comp
 
 ```json
 {
-    'gppd': {
-        'id': 'GBR0003489',
-        'datasets': [
-            {
-                'name': 'Global Power Plant Database',
-                'url': 'https://github.com/wri/global-power-plant-database',
-                'id_field': 'gppd_idnr',
-            }
-        ],
+    "gppd": {
+        "id": "GBR0003489",
+        "datasets": [{
+            "name": "Global Power Plant Database",
+            "url": "https://github.com/wri/global-power-plant-database",
+            "id_field": "gppd_idnr",
+        }],
     },
-    'bmu': {
-        'id': 'T_WHILW-1',
-        'datasets': [
-            {
-                'name': 'Detailed System Prices',
-                'url': 'https://www.bmreports.com/bmrs/?q=balancing/detailprices',
-                'id_field': 'Id'
+    "bmu": {
+        "id": "T_WHILW-1",
+        "datasets": [{
+                "name": "Detailed System Prices",
+                "url": "https://www.bmreports.com/bmrs/?q=balancing/detailprices",
+                "id_field": "Id"
             },
             ...
             {
-                'name': 'Actual Generation Output Per Generation Unit',
-                'url': 'https://www.bmreports.com/bmrs/?q=actgenration/actualgeneration',
-                'id_field': 'BM Unit ID' 
+                "name": "Actual Generation Output Per Generation Unit",
+                "url": "https://www.bmreports.com/bmrs/?q=actgenration/actualgeneration",
+                "id_field": "BM Unit ID"
             }
         ],
     },
-    'beis': {
-        'id': 3489,
-        'datasets': [
-            {
-                'name': 'Renewable Power Plants UK',
-                'url': 'https://data.open-power-system-data.org/renewable_power_plants/',
-                'id_field': 'uk_beis_id'                
-            }
-        ]
+    "beis": {
+        "id": 3489,
+        "datasets": [{
+            "name": "Renewable Power Plants UK",
+            "url": "https://data.open-power-system-data.org/renewable_power_plants/",
+            "id_field": "uk_beis_id"
+        }]
     }
 }
 ```
@@ -165,8 +153,8 @@ Using our previous example we'll explore what each of these four dictionary comp
 ```json
 [
     {
-        'url': 'https://osuked.github.io/Wind-Farms/sites/10253.json',
-        'relationship': 'extension' 
+        "url": "https://osuked.github.io/Wind-Farms/sites/10253.json",
+        "relationship": "extension"
     }
 ]
 ```
